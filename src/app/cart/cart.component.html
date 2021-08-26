@@ -1,0 +1,28 @@
+ <div style="float:center" *ngIf="count==0">NO SAVED COMPANIES</div>
+<div *ngIf="count!=0" class="row" style="padding-bottom:10px;overflow-x: hidden;">
+    <div class="column"  *ngFor="let c of data[1]">
+      <div class="card" >
+        <h3 style="text-align: center;" >{{c.symbol}}</h3>
+        <hr>
+        <table style="text-align: center;"> 
+            <tr><td><b>NSE</b></td><td>{{c.nse}}</td></tr>
+            <hr>
+            <tr><td><b>BSE</b></td><td>{{c.bse}}</td></tr>
+            <hr>
+            <tr><td><b>ARBITRAGE</b></td><td>{{c.difference}}</td></tr>
+            <hr>
+            <tr><td><b>STOCKS</b></td><td>{{c.noOfStocks}}</td></tr>
+            <hr>
+            <tr><td><b>PROFIT</b></td><td>{{(c.noOfStocks*c.difference).toFixed(3)}}</td></tr>
+            <hr>
+            <tr><td><b>SAVED ON</b></td><td>&nbsp;&nbsp;&nbsp;{{c.date}}</td></tr>
+              <hr>
+            </table>
+        <div style="float:right">
+         <button (click)="deletebyid(c.symbol)" style="color: red;"><span class="fa fa-heart" style="font-size: 1.5em;color:'red';"></span></button>
+        </div>
+
+      </div>
+    </div>
+</div> 
+  

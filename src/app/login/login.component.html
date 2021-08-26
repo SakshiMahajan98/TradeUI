@@ -1,0 +1,57 @@
+
+<mat-toolbar color="primary">
+  Login
+  <span class="flex-spacer"></span>
+  <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+<!-- <p>{{ user | json }}</p> -->
+
+<form novalidate #loginForm="ngForm" (ngSubmit)="handleLogin()">
+<br><br>
+<div class="alert alert-warning" *ngIf='invalidLogin' style="color:red;">*{{errorMessage}}</div>
+<div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}} Welcome , {{username}} !!</div>
+<br>
+
+
+<mat-dialog-content>
+  
+  <div class="form-group" style="padding-left: 20px;">
+    <table  style="width:300px;">
+    <tr>
+   <td style="width:130px;"><label for="email">User Name  </label></td> 
+    <td><input type="text" class="form-control" id="username" [(ngModel)]="username" placeholder="Enter User Name"
+      name="username" required></td>
+      </tr>
+      </table>
+  </div>
+</mat-dialog-content>
+
+
+
+<mat-dialog-content >
+  
+  <div class="form-group"  style="padding-left: 20px;">
+    <table style="width:300px;">
+    <tr>
+    <td  style="width:130px;"><label for="pwd">Password</label></td>
+    <td><input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Enter password"
+      name="password" required></td>
+    </tr>
+  </table>
+  </div>
+</mat-dialog-content>
+
+
+<mat-dialog-content >
+  <p  style="padding-left: 20px;padding-top: 40px;">
+    <mat-checkbox [(ngModel)]="remember" name="remember">Remember Me</mat-checkbox>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <span class="flex-spacer"></span>
+  <button style="padding-right: 30px;" mat-button mat-dialog-close>Cancel</button> &ensp; &ensp; &ensp; &ensp;
+  <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="loginForm.form.invalid">Login</button>
+</mat-dialog-actions>
+</form>
+
+

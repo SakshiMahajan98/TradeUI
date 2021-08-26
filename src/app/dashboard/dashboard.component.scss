@@ -1,0 +1,162 @@
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 120px auto 60px auto;
+    
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #center {
+    margin: auto;
+    width: 50%;
+    align-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+  
+ #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+#customers td, #customers th {
+  border: 2px solid rgb(97, 94, 94);
+  padding: 8px;
+  text-align: center;
+}
+
+#customers tr:nth-child(even){background-color: #e6e3e39a;}
+
+
+#customers tr:hover {background-color: #c5bbee;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#0c9aecc9;
+  color: black;     
+}
+
+ /* Column Priorities */
+ @media only all {
+  th.ui-p-6,
+  td.ui-p-6,
+  th.ui-p-5,
+  td.ui-p-5,
+  th.ui-p-4,
+  td.ui-p-4,
+  th.ui-p-3,
+  td.ui-p-3,
+  th.ui-p-2,
+  td.ui-p-2,
+  th.ui-p-1,
+  td.ui-p-1 {
+      display: none;
+  }
+}
+
+/* Show priority 1 at 320px (20em x 16px) */
+@media screen and (min-width: 20em) {
+  th.ui-p-1,
+  td.ui-p-1 {
+      display: table-cell;
+  }
+}
+
+/* Show priority 2 at 480px (30em x 16px) */
+@media screen and (min-width: 30em) {
+  th.ui-p-2,
+  td.ui-p-2 {
+      display: table-cell;
+  }
+}
+
+/* Show priority 3 at 640px (40em x 16px) */
+@media screen and (min-width: 40em) {
+  th.ui-p-3,
+  td.ui-p-3 {
+      display: table-cell;
+  }
+}
+
+/* Show priority 4 at 800px (50em x 16px) */
+@media screen and (min-width: 50em) {
+  th.ui-p-4,
+  td.ui-p-4 {
+      display: table-cell;
+  }
+}
+
+/* Show priority 5 at 960px (60em x 16px) */
+@media screen and (min-width: 60em) {
+  th.ui-p-5,
+  td.ui-p-5 {
+      display: table-cell;
+  }
+}
+
+/* Show priority 6 at 1,120px (70em x 16px) */
+@media screen and (min-width: 70em) {
+  th.ui-p-6,
+  td.ui-p-6 {
+      display: table-cell;
+  }
+}
+
+body .ui-slider-handle { background-color: white !important;}
+
+:host {
+::ng-deep .prime-slider-override {
+background-color: #26A3D1;
+background-image:none;
+border:none;
+color:white;
+.ui-slider-range {
+background: red;
+}
+}
+}
+
+.ui-dropdown    {
+  background-color:black;
+}
+.ui-dropdown-label  {
+  color:white;
+}
+
+.ui-dropdown-label:hover{
+  color:red
+}
+.ui-dropdown-item   {
+  color:white;
+  background-color:black;
+}
+
+
+
+
+
+.fa-heart {
+  color: #ccc;
+}
+
+.fa-heart.active {
+  color: deeppink;
+}
+
+
+
+
+
+::ng-deep .your-table .ui-datatable-scrollable-view .ui-datatable-scrollable-body {
+  min-height: 27vh;
+}
