@@ -33,8 +33,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import 'hammerjs';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CartComponent } from './cart/cart.component';
+
 
 
 
@@ -47,8 +46,7 @@ import { CartComponent } from './cart/cart.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    DashboardComponent,
-    CartComponent,
+    
   
   ],
   imports: [
