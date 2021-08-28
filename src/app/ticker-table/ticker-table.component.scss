@@ -1,0 +1,26 @@
+#tt{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border: none;
+    width: 100%;
+  }
+  
+  #tt td, #tt th {
+    
+    padding: 8px;
+    width:25%;
+    text-align: center;
+    border:none;
+  }
+  
+  #tt tr:nth-child(even){background-color: #f8f8f8b6;}
+  
+  
+  #tt tr:hover {background-color: #c3ebec;}
+  
+  #tt th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: black;
+  }
+  
