@@ -35,6 +35,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { TickerTableComponent } from './ticker-table/ticker-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TradeHistoryComponent } from './trade-history/trade-history.component';
 
 
 
@@ -50,6 +51,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     TickerTableComponent,
     DashboardComponent,
+    TradeHistoryComponent,
     
   
   ],
