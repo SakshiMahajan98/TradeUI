@@ -1,7 +1,8 @@
+}
 <div padding-right="30px" padding-left="30px;">
-<p-table styleClass="borderless" #my id="tt" [columns]="cols" [value]="trades"  selectionMode="single"  [(selection)]="selectedrow"    datakey="trade_id"
-    (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" 
-    [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+<p-table styleClass="borderless" #my id="tt" [columns]="cols" [value]="trades"  datakey="trade_id"
+    
+    [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" 
     [paginator]="true" [filterDelay]="0" [scrollable]="true" scrollHeight="400px" class="table table-hover table-responsive table-bordered" [responsive]="true">
     <ng-template pTemplate="caption">
         <div style="text-align: right">        

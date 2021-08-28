@@ -18,11 +18,13 @@ export class DataService {
   }
 
   getTradeData(){
-    return this.http.get<Trade[]>(`http://localhost:8080/getTradeHistory`);
+    return this.http.get<any>(`http://punedevopsb27.conygre.com:8081/api/trade/get`);
        
   }
 
   
+
+
 
 
 }

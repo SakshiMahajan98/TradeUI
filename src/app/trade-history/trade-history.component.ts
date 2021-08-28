@@ -4,7 +4,7 @@ import { DataService } from '../service/data.service';
 export class Trade{
   constructor(
     public trade_id: number,
-    public Trade_time: string,
+    public timestamp: string,
     public ticker_symbol:string,
     public order_side:string,
     public order_type:string,
@@ -21,16 +21,16 @@ export class Trade{
   styleUrls: ['./trade-history.component.scss']
 })
 export class TradeHistoryComponent implements OnInit {
-  trades:Trade[]
+  trades:[];
   cols = [
     { field: "trade_id", header: "trade_id" },
-    { field: "Trade_time", header: "Trade_time" },
+    { field: "timestamp", header: "timestamp" },
     { field: "ticker_symbol", header: "ticker_symbol" },
     { field: "order_side", header: "order_side" },
     { field: "order_type", header: "order_type" },
     { field: "quantity", header: "quantity" },
     { field: "price", header: "price" },
-    {field:"status_code",header:"statusCode"}
+    {field:"status_code",header:"status_code"}
 
   ];
 
@@ -38,6 +38,7 @@ export class TradeHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService. getTradeData().subscribe(data => this.trades = data);
+    console.log(this.trades);
   }
 
 
