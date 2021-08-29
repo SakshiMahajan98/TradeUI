@@ -1,4 +1,4 @@
-<h2>Buy or Sell Trades </h2>
+ <h2>Buy or Sell Trades </h2>
 <form class="form" [formGroup]="buyerForm">
 <h2>Buy or Sell Trades </h2>
     <h5>Ticker Symbol</h5>
@@ -11,7 +11,7 @@
             matInput
             [formControl]="myControl"
             [matAutocomplete]="auto"
-            formcontrolName="Ticker">
+            formcontrolName="Tick">
         <mat-autocomplete #auto="matAutocomplete">
         <mat-option (click)="OnHumanSelected(ticker)"  *ngFor="let option of filteredOptions | async" [value]="option">
             {{option}}

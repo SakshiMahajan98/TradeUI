@@ -1,1 +1,83 @@
-<p>profile works!</p>
+<div style="margin-left:350px;float:left;">
+<button (click)="router.navigate(['/profile']);"><span class="fa fa-user-circle" style="font-size: 6.5em;color:'black';"></span></button>
+</div>
+<p style="font-size:30px;"><b>&nbsp;&nbsp;Hello {{username}}! &nbsp;&nbsp;</b></p>
+<hr>
+
+
+<div style="margin-left:500px;width:100%;">
+
+        <h3>User Details:</h3>
+        <table width='400px;' >
+        <tr>
+        <td><b> &nbsp;User Name &nbsp; </b></td>
+        <td> {{user.user_name}}</td>
+        </tr>
+        <tr>
+            <td><b> &nbsp;Email ID  &nbsp;</b></td>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <td><b> &nbsp;Contact Number  &nbsp;</b> </td>
+            <td>{{user.phone}}</td>
+        </tr>
+        </table>
+                   <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">&nbsp;&nbsp;Amount of Cash</h4>
+                            <p class="card-text">{{user.cash}}</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">&nbsp;&nbsp;Equity value</h4>
+                            <p class="card-text">{{user.equity_value}}</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">&nbsp;&nbsp;Total</h4>
+                            <p class="card-text">{{total}}</p>
+                        </div>
+                    </div>
+                    <div  style="padding-left:200px;">
+                    <button mat-raised-button (click)="AddMoney()">Add Money</button>
+                    <button mat-raised-button (click)="RemoveMoney();">Withdraw Money</button>
+                    </div>
+                        
+                    <div [hidden]="edit!=1" >
+                        <form class="form" [formGroup]="buyerForm">
+                        <h5>Amount to be deposited: &nbsp;</h5>
+                        <mat-form-field class="full-width"appearance="fill">
+                            <mat-label>Input</mat-label>
+                            <input matInput formControlName="Deposit">
+                        </mat-form-field>
+                        <div>
+                        <button mat-raised-button (click)="AddMoneyValidate()">Submit</button>
+                        </div>
+                       
+                        
+                        </form>
+                    </div>
+                    <div [hidden]="edit!=2"  >
+                        <form class="form" [formGroup]="buyerForm">
+                        <h5>Amount to be withdrawn: &nbsp;</h5>
+                        <mat-form-field class="full-width"appearance="fill">
+                            <mat-label>Input</mat-label>
+                            <input matInput formControlName="Withdraw">
+                        </mat-form-field>
+                        <div>
+                        <button mat-raised-button (click)="RemMoneyValidate()">Submit</button>
+                        </div>
+                        <p [hidden]="worry==0" style="color:red;">Money value exceeds the current balance. </p>
+                        
+                        </form>
+                    </div>
+</div>
+
+
+
+
+
+
+

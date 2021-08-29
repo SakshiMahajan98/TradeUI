@@ -29,6 +29,10 @@ export class DataService {
     return this.http.get<any>(`http://punedevopsb27.conygre.com:8081/api/trade/get`);
        
   }
+  getPDData(){
+    return this.http.get<any>(`http://punedevopsb27.conygre.com:8081/api/trade/get`);
+       
+  }
   getuserData(){
     return this.http.get<User>(`http://localhost:8080/api/shippers/h`);
        
@@ -41,7 +45,10 @@ export class DataService {
     return this.http.get<any>(`http://localhost:8080/${ft}/${arr}`);
   }
 
-
+  editMoney(withdraw:number,ft:number)
+  {
+    return this.http.get<any>(`http://localhost:8080/${ft}/${withdraw}`);
+  }
 
 
 }

@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DataService } from '../service/data.service';
-import { Ticker } from '../ticker-table/ticker-table.component';
 
 @Component({
   selector: 'app-buy-sell',
@@ -20,7 +19,7 @@ export class BuySellComponent implements OnInit {
   hello=0;
   filteredOptions: Observable<string[]>;
   buyerForm = new FormGroup({
-    Ticker: new FormControl('', [
+    Tick: new FormControl('', [
       Validators.required,
     ]),
     Quantity: new FormControl('', [
@@ -51,7 +50,7 @@ export class BuySellComponent implements OnInit {
     );
   }
 
-  public buyFormData()
+  public BuyFormData()
   {
     if(this.error==0)
     {
@@ -71,7 +70,7 @@ export class BuySellComponent implements OnInit {
     
 
   }
-  public sendFormData()
+  public SellFormData()
   {
     if(this.error==0)
     {
