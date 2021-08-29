@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ticker } from '../ticker-table/ticker-table.component';
 import { Trade } from '../trade-history/trade-history.component';
+import { User } from '../dashboard/dashboard.component';
 
 
 @Injectable({
@@ -17,12 +18,28 @@ export class DataService {
         .then(data => { return data; });
   }
 
+  getTickerNames(){
+    return this.http.get<any>('assets/TickerNames.json')
+        .toPromise()
+        .then(res => <string[]>res.data)
+        .then(data => { return data; });
+  }
+
   getTradeData(){
     return this.http.get<any>(`http://punedevopsb27.conygre.com:8081/api/trade/get`);
        
   }
-
-  
+  getuserData(){
+    return this.http.get<User>(`http://localhost:8080/api/shippers/h`);
+       
+  }
+ 
+  buyTrade(arr:any[],ft:number)
+  {
+    //ft=0 buy
+    //ft=1 sell
+    return this.http.get<any>(`http://localhost:8080/${ft}/${arr}`);
+  }
 
 
 

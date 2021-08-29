@@ -5,6 +5,10 @@ import { LogoutComponent } from '../logout/logout.component';
 import {TickerTableComponent} from '../ticker-table/ticker-table.component';
 import  {DashboardComponent} from '../dashboard/dashboard.component';
 import {TradeHistoryComponent} from '../trade-history/trade-history.component';
+import {BuySellComponent} from '../buy-sell/buy-sell.component';
+import {PortfolioComponent} from '../portfolio/portfolio.component';
+import {ProfileComponent} from '../profile/profile.component';
+
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'login',  component: LoginComponent },
@@ -12,5 +16,8 @@ export const routes: Routes = [
   { path: 'tickertable',   component:TickerTableComponent},
   { path: 'dashboard',   component:DashboardComponent},
   { path: 'tradeHistory',   component:TradeHistoryComponent},
+  { path: 'buy',   component:BuySellComponent},
+  { path: 'portfolio',   component:PortfolioComponent},
+  { path: 'profile',   component:ProfileComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

@@ -1,3 +1,30 @@
 <div style="margin:0;padding-right: 1115px;padding-left:12px;overflow-y:hidden;box-shadow: black;">
 <app-ticker-table ></app-ticker-table>
 </div>
+<div style="width:100%;">
+<div style="width:75%;float:left;height:700px;">
+<app-buy-sell></app-buy-sell>
+</div>
+<div style="margin-left: 30%;height:650px;">
+<p-card header="Your Details" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+        <hr>
+        <center>
+        <h3> Your Details</h3>
+        </center>
+        <table style="text-align: center;"> 
+            <tr><td><b>Equity</b></td><td>{{data.equity_value}}</td></tr>
+            <hr>
+            <tr><td><b>Cash</b></td><td>{{data.cash}}</td></tr>
+            <hr>
+            <tr><td><b>Total</b></td><td>{{data.cash}}</td></tr>
+            <hr>
+            </table>
+        
+        <p-button (click)="router.navigate(['/home']);" styleClass="p-button-secondary"><span>&nbsp;&nbsp;  Click here to add or remove money  &nbsp;&nbsp;</span></p-button>
+      
+    </p-card>
+</div>
+<div style="height:1000px;float:right"></div>
+</div>
+
+
