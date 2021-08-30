@@ -8,6 +8,7 @@ import {TradeHistoryComponent} from '../trade-history/trade-history.component';
 import {BuySellComponent} from '../buy-sell/buy-sell.component';
 import {PortfolioComponent} from '../portfolio/portfolio.component';
 import {ProfileComponent} from '../profile/profile.component';
+import {ChartComponent} from '../chart/chart.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'buy',   component:BuySellComponent},
   { path: 'portfolio',   component:PortfolioComponent},
   { path: 'profile',   component:ProfileComponent},
+  { path: 'chart',   component:ChartComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

@@ -4,7 +4,7 @@ import { DataService } from '../service/data.service';
 export class Trade{
   constructor(
     public trade_id: number,
-    public timestamp: string,
+    public trade_time: string,
     public ticker_symbol:string,
     public order_side:string,
     public order_type:string,
@@ -24,7 +24,7 @@ export class TradeHistoryComponent implements OnInit {
   trades:[];
   cols = [
     { field: "trade_id", header: "trade_id" },
-    { field: "timestamp", header: "timestamp" },
+    { field: "trade_time", header: "Trade time Stamp" },
     { field: "ticker_symbol", header: "ticker_symbol" },
     { field: "order_side", header: "order_side" },
     { field: "order_type", header: "order_type" },

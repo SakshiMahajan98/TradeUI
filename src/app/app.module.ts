@@ -41,6 +41,7 @@ import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -60,6 +61,7 @@ import { ProfileComponent } from './profile/profile.component';
     BuySellComponent,
     PortfolioComponent,
     ProfileComponent,
+    ChartComponent,
     
   
   ],

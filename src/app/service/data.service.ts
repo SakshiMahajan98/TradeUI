@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Ticker } from '../ticker-table/ticker-table.component';
 import { Trade } from '../trade-history/trade-history.component';
 import { User } from '../dashboard/dashboard.component';
+import { ChartData } from '../chart/chart.component';
 
 
 @Injectable({
@@ -49,6 +50,13 @@ export class DataService {
   editMoney(withdraw:number,ft:number)
   {
     return this.http.get<any>(`http://localhost:8080/${ft}/${withdraw}`);
+  }
+  getChartData()
+  {
+    return this.http.get<any>('assets/ChartData.json')
+    .toPromise()
+    .then(res => <ChartData[]>res.data)
+    .then(data => { return data; });
   }
 
 

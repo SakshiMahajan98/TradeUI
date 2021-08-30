@@ -1,6 +1,18 @@
 
-hello
-<app-ticker-table></app-ticker-table>
+<div width="100%">
+    <app-ticker-table style="width:400px;float:left;"></app-ticker-table>
+    <app-chart ></app-chart>
+    <div style="height:600px;margin-right:10px;margin-left:1650px;">
+        <p-card >
+            <ng-template pTemplate="header">
+                Details
+            </ng-template>
+            Body Content <br>
+            The Closing Price is :  
+        </p-card>
+    </div>
+</div>
+
 <div style="width:100%;">
 <app-buy-sell></app-buy-sell>
 <div class="car">
