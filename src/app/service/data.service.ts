@@ -31,12 +31,16 @@ export class DataService {
   }
 
   getTradeData(){
-    return this.http.get<any>(`${environment.tradeUrl}/api/trade/get`);
+    console.log(environment.portfolioUrl);
+    return this.http.get<any>(`http://trade-service-hackathon.punedevopsa4.conygre.com/api/trade/get`);
     
        
   }
   getPDData(){
-    return this.http.get<any>(`http://punedevopsb27.conygre.com:8081/api/trade/get`);
+    const id:number=1;
+    console.log(environment.tradeUrl);
+    return this.http.get<any>(`http://portfolio-service-hackathon.punedevopsa4.conygre.com/api/portfolio/get/1`);
+    
        
   }
   getuserData(){
@@ -48,7 +52,7 @@ export class DataService {
   {
     //ft=0 buy
     //ft=1 sell
-    return this.http.get<any>(`http://localhost:8080/${ft}/${arr}`);
+    return this.http.get<any>(`http://trade-service-hackathon.punedevopsa4.conygre.com/${ft}/${arr}`);
   }
 
   editMoney(withdraw:number,ft:number)

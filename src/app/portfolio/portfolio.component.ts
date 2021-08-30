@@ -5,7 +5,7 @@ export class PortfolioData{
   constructor(
     public ticker_symbol:string,
     public quantity:number,
-    public Avg_price:number
+    public avg_price:number
   ){
    
   }
@@ -18,9 +18,9 @@ export class PortfolioData{
 export class PortfolioComponent implements OnInit {
   pd:[];
   cols = [
-    { field: "ticker_symbol", header: "ticker_symbol" },
-    { field: "quantity", header: "quantity" },
-    { field: "Avg_price", header: "Avg_price" }  
+    { field: "ticker_symbol", header: "Ticker Symbol" },
+    { field: "quantity", header: "Quantity" },
+    { field: "avg_price", header: "Average Price" }  
 
   ];
   constructor(public dataService:DataService) { }

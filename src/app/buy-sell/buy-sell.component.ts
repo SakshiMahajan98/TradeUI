@@ -14,6 +14,7 @@ export class BuySellComponent implements OnInit {
   options: string[]=[];
   ticker:string;
   error=0;
+  
   flag=0;
   result=9;
   hello=0;
@@ -33,6 +34,11 @@ export class BuySellComponent implements OnInit {
   constructor(public dataService:DataService) { }
 
   ngOnInit(): void {
+    this.error=0;
+  
+    this.flag=0;
+    this.result=9;
+    this.hello=0;
     this.dataService.getTickerNames().then(data => this.options = data);
     console.log("Hello"+this.options);
     this.filteredOptions = this.myControl.valueChanges.pipe(

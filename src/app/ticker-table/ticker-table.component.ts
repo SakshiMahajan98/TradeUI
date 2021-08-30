@@ -37,4 +37,8 @@ export class TickerTableComponent implements OnInit {
     
     return parseInt(filter) > value;
   }
+  fun(nb:any)
+  {
+    console.log(nb.tickersymbol);
+  }
 }

@@ -1,59 +1,64 @@
-<div style="margin-left:350px;float:left;">
-<button (click)="router.navigate(['/profile']);"><span class="fa fa-user-circle" style="font-size: 6.5em;color:'black';"></span></button>
-</div>
-<p style="font-size:30px;"><b>&nbsp;&nbsp;Hello {{username}}! &nbsp;&nbsp;</b></p>
+<div style="margin-left:350px;float:left;height:200px;">
+<img src="../assets/images/profile.jpg" style="border-radius:50%;width:200px">
+
+<p style="font-size:30px;"><b>&nbsp;&nbsp;&nbsp;&nbsp;Hello {{username}}! &nbsp;&nbsp;</b></p>
 <hr>
+</div>
 
+<div style="margin-left:650px;width:100%;">
 
-<div style="margin-left:500px;width:100%;">
-
-        <h3>User Details:</h3>
-        <table width='400px;' >
+        <h2>Your Details:</h2>
+        <table width='750px;' >
         <tr>
-        <td><b> &nbsp;User Name &nbsp; </b></td>
-        <td> {{user.user_name}}</td>
+        <td><b><h3> &nbsp;User Name &nbsp;  </h3></b></td>
+        <td> <h3>{{user.user_name}}</h3></td>
         </tr>
         <tr>
-            <td><b> &nbsp;Email ID  &nbsp;</b></td>
-            <td>{{user.email}}</td>
+            <td><h3><b> &nbsp;Email ID  &nbsp;</b></h3></td>
+            <td><h3>{{user.email}}</h3></td>
         </tr>
         <tr>
-            <td><b> &nbsp;Contact Number  &nbsp;</b> </td>
-            <td>{{user.phone}}</td>
+            <td><b><h3> &nbsp;Contact Number  &nbsp;</h3></b> </td>
+            <td><h3>{{user.phone}}</h3></td>
         </tr>
         </table>
-                   <div class="card" style="width: 18rem;">
+        
+</div>
+<br>
+
+<div style="width:100%;margin-left:650px;">
+                   <div class="card" style="float:left;">
                         <div class="card-body">
                             <h4 class="card-title">&nbsp;&nbsp;Amount of Cash</h4>
                             <p class="card-text">&nbsp;&nbsp;&nbsp;{{user.cash}}</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="float:left;margin-left:15px;">
                         <div class="card-body">
                             <h4 class="card-title">&nbsp;&nbsp;Equity value</h4>
                             <p class="card-text">&nbsp;&nbsp;&nbsp;{{user.equity_value}}</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="margin-left:405px;">
                         <div class="card-body">
-                            <h4 class="card-title">&nbsp;&nbsp;Total</h4>
-                            <p class="card-text">&nbsp;&nbsp;&nbsp;{{total}}</p>
+                           <h4 class="card-title" style="padding-top:25px;">&nbsp;&nbsp;Total</h4>
+                            <p class="card-text" style="padding-top:7px;">&nbsp;&nbsp;&nbsp;{{total}}<br></p>
                         </div>
                     </div>
-                    <div  style="padding-left:200px;">
-                    <button mat-raised-button (click)="AddMoney()">Add Money</button>
-                    <button mat-raised-button (click)="RemoveMoney();">Withdraw Money</button>
+                    <div  style="margin-left:200px;margin-top:50px;">
+                    <button mat-raised-button color="primary"  (click)="AddMoney()"><b>&nbsp;&nbsp;Add Money&nbsp;&nbsp;</b></button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary"  (click)="RemoveMoney();"><b>Withdraw Money</b></button>
                     </div>
                         
                     <div [hidden]="edit!=1" >
                         <form class="form" [formGroup]="buyerForm">
-                        <h5>Amount to be deposited: &nbsp;</h5>
+                        <h4>Amount to be deposited: &nbsp;</h4>
                         <mat-form-field class="full-width"appearance="fill">
                             <mat-label>Input</mat-label>
                             <input matInput formControlName="Deposit">
                         </mat-form-field>
                         <div>
-                        <button mat-raised-button (click)="AddMoneyValidate()">Submit</button>
+                        <button mat-raised-button (click)="AddMoneyValidate()"><b>Submit</b></button>
                         </div>
                        
                         
@@ -61,20 +66,19 @@
                     </div>
                     <div [hidden]="edit!=2"  >
                         <form class="form" [formGroup]="buyerForm">
-                        <h5>Amount to be withdrawn: &nbsp;</h5>
+                        <h4>Amount to be withdrawn: &nbsp;</h4>
                         <mat-form-field class="full-width"appearance="fill">
                             <mat-label>Input</mat-label>
                             <input matInput formControlName="Withdraw">
                         </mat-form-field>
                         <div>
-                        <button mat-raised-button (click)="RemMoneyValidate()">Submit</button>
+                        <button mat-raised-button (click)="RemMoneyValidate()"><b>Submit</b></button>
                         </div>
                         <p [hidden]="worry==0" style="color:red;">Money value exceeds the current balance. </p>
                         
                         </form>
                     </div>
-</div>
-
+                    </div>
 
 
 

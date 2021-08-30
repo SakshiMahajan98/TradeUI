@@ -1,34 +1,42 @@
 
 <div width="100%">
-    <app-ticker-table style="width:400px;float:left;"></app-ticker-table>
-    <app-chart ></app-chart>
-    <div style="height:600px;margin-right:10px;margin-left:1650px;">
-        <p-card >
-            <ng-template pTemplate="header">
-                Details
-            </ng-template>
-            Body Content <br>
-            The Closing Price is :  
-        </p-card>
-    </div>
+    <app-ticker-table style="width:400px;float:left;margin-left:30px;"></app-ticker-table>
+    <app-chart style="margin-left:440px;" ></app-chart>
+    
 </div>
 
 <div style="width:100%;">
-<app-buy-sell></app-buy-sell>
-<div class="car">
-    <div class="contr">
-    <table style="text-align: center;"> 
-    <tr><td><b>Equity</b></td><td>{{data.equity_value}}</td></tr>
-    <hr>
-    <tr><td><b>Cash</b></td><td>{{data.cash}}</td></tr>
-    <hr>
-    <tr><td><b>Total</b></td><td>{{data.cash}}</td></tr>
-    <hr>
-    </table>
+<br>
+<br>
+<hr>
+<app-buy-sell style="width:1300px;margin-left:30px;float:left;border:1px solid;"></app-buy-sell>
+<div style="height:530px;margin-left:1350px;border:1px solid;">
+        <p-card border="0">
+            <ng-template pTemplate="header">
+                Details
+            </ng-template>
+            <span><img src="../assets/images/money-bag.png" style="float:left;margin-top:8px;margin-left:90px;height:40px;width=40px;">
+            <h2 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Details</h2></span>
+            
+            <br>
+            <table style="margin-left:100px;text-align: center;width:300px;"> 
+                <tr><td id="tes"><b>Equity</b></td><td><b>{{data.equity_value}}</b></td></tr>
+                <hr>
+                <tr><td id="tes"><b>Cash</b></td><td><b>Rs. {{data.cash}}</b></td></tr>
+                <hr>
+                <tr><td id="tes"><b>Total</b></td><td><b>{{data.cash}}</b></td></tr>
+                <hr>
+            </table>
+              <br>
+            <button mat-raised-button style="margin-left:230px;" (click)="router.navigate(['/profile']);">&nbsp; Click here to Edit &nbsp;</button>
+            <br>
+            <br>
+        </p-card>
+        <h3 style="margin-left:25px;">Click here to view your Portfolio </h3>
+        <button mat-raised-button style="margin-left:250px;" (click)="router.navigate(['/portfolio']);">&nbsp; Portfolio &nbsp;</button>
+        <h3  style="margin-left:25px;">Click here to view your Tradehistory </h3>
+        <button mat-raised-button style="margin-left:250px;" (click)="router.navigate(['/tradeHistory']);">&nbsp;trade History&nbsp;</button>
     </div>
-    <button mat-raised-button style="margin-left:15px;" (click)="router.navigate(['/home']);">&nbsp; Click here to Edit &nbsp;</button>
-    <br>
-    <br>
-</div>  
+
 </div>
             
