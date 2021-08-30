@@ -26,7 +26,8 @@ export class DataService {
   }
 
   getTradeData(){
-    return this.http.get<any>(`http://punedevopsb27.conygre.com:8081/api/trade/get`);
+    return this.http.get<any>(`http://trade-service-hackathon.punedevopsa4.conygre.com/api/trade/get`);
+    
        
   }
   getPDData(){

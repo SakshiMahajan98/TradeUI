@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   result=100;
   user:User;
   worry=0;
+  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
   Withdraw:number;
   buyerForm = new FormGroup({
     Withdraw: new FormControl('', [
@@ -31,8 +32,9 @@ export class ProfileComponent implements OnInit {
   constructor(public dataService:DataService, public router:Router) { }
 
   ngOnInit(): void {
-    sessionStorage.setItem("name","Sakshi");
-    this.username=sessionStorage.getItem("name");
+    this.edit=0;
+    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME,"Sakshi");
+    this.username=sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     this.dataService.getuserData().subscribe (
       data=> {this.user = data;
               this.total=this.user.cash+this.user.equity_value; 
@@ -64,6 +66,7 @@ export class ProfileComponent implements OnInit {
        this.dataService.editMoney(this.buyerForm.get('Withdraw').value,0).toPromise().then(data => this.result = data);
        this.worry=0;
        console.log(this.worry);
+       this.edit=0;
      }
   }
   AddMoneyValidate()
@@ -73,6 +76,7 @@ export class ProfileComponent implements OnInit {
        this.worry=0;
        this.user.cash=this.user.cash+ (Number) (this.buyerForm.get('Deposit').value);
        console.log(this.worry +"hello" +this.user.cash);
+       this.edit=0;
      }
   }
 
