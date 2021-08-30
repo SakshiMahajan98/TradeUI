@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  tradeUrl: "http://trade-service-hackathon.punedevopsa4.conygre.com",
+  userUrl: "http://user-service-hackathon.punedevopsa4.conygre.com",
+  portfolioUrl: "http://portfolio-service-hackathon.punedevopsa4.conygre.com",
+  moneyUrl: "http://money-service-hackathon.punedevopsa4.conygre.com"
+
+  
 };
 
 /*
