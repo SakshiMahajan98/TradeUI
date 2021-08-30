@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../service/data.service';
 import {MessageService} from 'primeng/api';
 import { UIChart} from 'primeng/chart';
+import { ChartService } from './chart.service';
 export class ChartData{
   constructor(
     public date:string,
@@ -25,7 +26,7 @@ export class ChartData{
 export class ChartComponent implements OnInit {
   @ViewChild('chart') chart: UIChart; 
    cD:ChartData[];
-  constructor(public dataservice:DataService,private messageService: MessageService) { }
+  constructor(public dataservice:DataService,private messageService: MessageService, public chartService: ChartService) { }
   
   cols = [
     { field: "date", header: "Date" },
@@ -38,13 +39,19 @@ export class ChartComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.dataservice.getChartData().then(data => {this.cD = data;
-                                                   console.log("Inside");
-                                                   this.getgraph();
-                                                  this.chart.refresh();});
-  
+    // this.dataservice.getChartData().then(data => {this.cD = data;
+    //                                                console.log("Inside");
+    //                                                console.log(data);
+    //                                                console.log("Inside");
+    //                                                this.getgraph();
+    //                                               this.chart.refresh();});
+  this.chartService.getData("TCS")
+    .then(data => {this.cD=data;
+    this.getgraph();
+    this.chart.refresh();});
+    
   }
-
+    
   data2:any;
 lab:string[]=[];
 closingprice:number[]=[];
