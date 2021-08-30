@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Ticker } from '../ticker-table/ticker-table.component';
 import { Trade } from '../trade-history/trade-history.component';
 import { User } from '../dashboard/dashboard.component';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -26,7 +27,7 @@ export class DataService {
   }
 
   getTradeData(){
-    return this.http.get<any>(`http://trade-service-hackathon.punedevopsa4.conygre.com/api/trade/get`);
+    return this.http.get<any>(`${environment.tradeUrl}/api/trade/get`);
     
        
   }
