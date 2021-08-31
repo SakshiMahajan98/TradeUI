@@ -81,11 +81,13 @@ export class BuySellComponent implements OnInit {
     if(this.error==0)
     {
       this.hello=99;
+      console.log("WGY");
       
     }
     else if((!this.buyerForm.get('Quantity').value || this.buyerForm.get('Quantity').value==0) || (!this.buyerForm.get('Price').value || this.buyerForm.get('Price').value==0 ))
     {
       this.hello=99;
+      console.log("why.."+this.error);
     }
     else{
       var arr: any[] = [this.ticker,this.buyerForm.get('Quantity').value,this.buyerForm.get('Price').value]  ; 
@@ -106,7 +108,7 @@ export class BuySellComponent implements OnInit {
      this.flag=2;
      console.log(this.flag);
       this.error=1;
-      console.log(this.error);
+      console.log(this.error+"Ticker");
    }
     
   }

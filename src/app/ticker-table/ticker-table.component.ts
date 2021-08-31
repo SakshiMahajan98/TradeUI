@@ -40,5 +40,6 @@ export class TickerTableComponent implements OnInit {
   fun(nb:any)
   {
     console.log(nb.tickersymbol);
+    sessionStorage.setItem("ticker_name",nb.tickersymbol);
   }
 }

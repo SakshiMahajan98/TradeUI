@@ -45,7 +45,7 @@ export class ChartComponent implements OnInit {
     //                                                console.log("Inside");
     //                                                this.getgraph();
     //                                               this.chart.refresh();});
-  this.chartService.getData("AAPL")
+  this.chartService.getData(sessionStorage.getItem("ticker_name"))
     .then(data => {this.cD=data;
     this.getgraph();
     this.chart.refresh();});

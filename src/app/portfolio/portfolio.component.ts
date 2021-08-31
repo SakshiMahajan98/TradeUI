@@ -3,7 +3,7 @@ import { DataService } from '../service/data.service';
 
 export class PortfolioData{
   constructor(
-    public ticker_symbol:string,
+    public ticker:string,
     public quantity:number,
     public avg_price:number
   ){
@@ -18,7 +18,7 @@ export class PortfolioData{
 export class PortfolioComponent implements OnInit {
   pd:[];
   cols = [
-    { field: "ticker_symbol", header: "Ticker Symbol" },
+    { field: "ticker", header: "Ticker Symbol" },
     { field: "quantity", header: "Quantity" },
     { field: "avg_price", header: "Average Price" }  
 

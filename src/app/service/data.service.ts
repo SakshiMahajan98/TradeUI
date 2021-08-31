@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ticker } from '../ticker-table/ticker-table.component';
 import { Trade } from '../trade-history/trade-history.component';
 import { User } from '../dashboard/dashboard.component';
@@ -7,6 +7,8 @@ import { User } from '../dashboard/dashboard.component';
 import { ChartData } from '../chart/chart.component';
 
 import { environment } from 'src/environments/environment';
+import { catchError, retry } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 
 
@@ -15,6 +17,11 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
   num:number=0;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  } 
   constructor( public http:HttpClient) { }
   getTickerData(){
     return this.http.get<any>('assets/TickerData.json')
@@ -32,19 +39,20 @@ export class DataService {
 
   getTradeData(){
     console.log(environment.portfolioUrl);
-    return this.http.get<any>(`http://trade-service-hackathon.punedevopsa4.conygre.com/api/trade/get`);
+    return this.http.get<any>(`${environment.tradeUrl}/api/trade/get`);
     
        
   }
   getPDData(){
     const id:number=1;
     console.log(environment.tradeUrl);
-    return this.http.get<any>(`http://portfolio-service-hackathon.punedevopsa4.conygre.com/api/portfolio/get/1`);
+    return this.http.get<any>(`${environment.portfolioUrl}/api/portfolio/get/1`);
     
        
   }
   getuserData(){
-    return this.http.get<User>(`http://localhost:8080/api/shippers/h`);
+    //return this.http.get<User>(`http://user-service-hackathon.punedevopsa4.conygre.com/api/user/get/1`);
+    return this.http.get<User>(`${environment.userUrl}/api/user/1`);
        
   }
  
@@ -52,12 +60,36 @@ export class DataService {
   {
     //ft=0 buy
     //ft=1 sell
-    return this.http.get<any>(`http://trade-service-hackathon.punedevopsa4.conygre.com/${ft}/${arr}`);
+    console.log(arr);
+    var data={
+      "order_side":ft,
+      "order_type":"Market",
+      "price":arr[2],
+      "quantity":arr[1],
+      "ticker_symbol":arr[0],
+      "user_id":1,
+
+    };
+    
+    return this.http.post<number>(`${environment.tradeUrl}/api/trade/add`+ '', JSON.stringify(data), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
   }
 
-  editMoney(withdraw:number,ft:number)
+  editMoney(amount:number,ft:number)
   {
-    return this.http.get<any>(`http://localhost:8080/${ft}/${withdraw}`);
+   if(ft==0)
+   {
+    return this.http.get<any>(`${environment.moneyUrl}/api/money/withdraw/1/${amount}`);
+
+   }
+   else
+   {
+       return this.http.get<any>(`${environment.moneyUrl}/api/money/add/1/${amount}`);
+   }
+    
   }
   getChartData()
   {
@@ -66,6 +98,18 @@ export class DataService {
     .then(res => <ChartData[]>res.data)
     .then(data => { return data; });
   }
-
+  handleError(error:any) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+ }
+  
 
 }

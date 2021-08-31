@@ -65,16 +65,20 @@ export class ProfileComponent implements OnInit {
      {
        this.dataService.editMoney(this.buyerForm.get('Withdraw').value,0).toPromise().then(data => this.result = data);
        this.worry=0;
-       console.log(this.worry);
+       console.log(this.buyerForm.get('Withdraw'));
+       this.user.cash=this.user.cash-(Number) (this.buyerForm.get('Withdraw').value);
+       this.total=this.user.cash+this.user.equity_value;
        this.edit=0;
      }
   }
   AddMoneyValidate()
   {
     console.log(this.buyerForm.get('Deposit'));
-       this.dataService.editMoney(this.buyerForm.get('Withdraw').value,0).toPromise().then(data => this.result = data);
+       this.dataService.editMoney(this.buyerForm.get('Deposit').value,1).toPromise().then(data => this.result = data);
        this.worry=0;
-       this.user.cash=this.user.cash+ (Number) (this.buyerForm.get('Deposit').value);
+       console.log(this.buyerForm.get('Deposit'));
+      this.user.cash=this.user.cash+ (Number)(this.buyerForm.get('Deposit').value);
+      this.total=this.user.cash+this.user.equity_value;
        console.log(this.worry +"hello" +this.user.cash);
        this.edit=0;
      }
