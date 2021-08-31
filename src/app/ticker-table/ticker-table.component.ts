@@ -16,6 +16,7 @@ export class Ticker{
 })
 export class TickerTableComponent implements OnInit {
   tickers:Ticker[]
+  ticker:string="AAPL";
   cols = [
     { field: "tickersymbol", header: "Ticker Symbol" },
     { field: "closing", header: "Closing price" },
@@ -42,7 +43,8 @@ export class TickerTableComponent implements OnInit {
   fun(nb:any)
   {
     console.log(nb.tickersymbol);
-    this.valueChange.emit(nb.tickersymbol);
+    this.ticker=nb.tickersymbol;
+    this.valueChange.emit(this.ticker);
     
   }
 }

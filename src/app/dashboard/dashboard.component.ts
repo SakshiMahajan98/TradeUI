@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit} from '@angular/core';
 import {DataService} from '../service/data.service';
 import { Router } from '@angular/router';
 
@@ -23,7 +23,7 @@ export class User{
 export class DashboardComponent implements OnInit {
   data:User;
   constructor(public dataservice:DataService, public router:Router) { }
-  ticker_name:string="AAPL";
+  ticker_name:string;
 
   ngOnInit(): void {
     this.dataservice.getuserData().subscribe (
@@ -38,5 +38,6 @@ export class DashboardComponent implements OnInit {
     this.ticker_name=ticker_name;
     console.log(this.ticker_name);
   }
+ 
 
 }
