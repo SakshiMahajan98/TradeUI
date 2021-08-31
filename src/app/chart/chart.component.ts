@@ -93,7 +93,7 @@ getgraph()
 this.options = {
   title: {
       display: true,
-      text: 'DateWise Closing Price',
+      text: this.ticker,
       fontSize: 16
   },
   legend: {

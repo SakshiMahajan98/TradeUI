@@ -1,8 +1,8 @@
 <div style="text-align:center;margin-left:400px;">
-<form style="text-align:center;" class="form" [formGroup]="buyerForm">
+<form style="text-align:center;" class="form" [formGroup]="buyerForm" >
 <h2>Buy or Sell Trades </h2>
     <h3>Ticker Symbol</h3>
-    <mat-form-field class="full-width" appearance="fill">
+    <mat-form-field class="full-width" appearance="fill"> 
         <mat-label>Ticker symbol</mat-label>
         <input type="text"
         [(ngModel)]="ticker"
@@ -19,7 +19,17 @@
         </mat-autocomplete>
       </mat-form-field>
       <h6 style="color:red;" [hidden]="this.error!=99">Invalid Option</h6>
-     
+    
+    <form [formGroup]="labeloptions">
+    <div  >
+      <h3>Choose Order type: </h3><br>
+      <mat-radio-group [formControl]="floatLabelControl">
+        <mat-radio-button value="Market">Market&nbsp;&nbsp;&nbsp;</mat-radio-button>
+        <mat-radio-button   value="Limit">Limit</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    </form>
+
     <h3>Choose quantity</h3> 
     <mat-form-field class="full-width"appearance="fill">
         <mat-label>Input</mat-label>
@@ -34,6 +44,7 @@
      <button mat-raised-button (click)="BuyFormData()">Buy Trade</button> &nbsp;
      <button mat-raised-button (click)="SellFormData()">Sell Trade</button>
      <h5  style="color:red;" [hidden]="hello==0">Please enter correct values</h5> 
+     <h3 style="color:black;" [hidden]="success==0"> Order Placed Successfully </h3>
       </form>
       </div>
 
