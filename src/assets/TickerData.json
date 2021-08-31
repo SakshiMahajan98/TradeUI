@@ -1,12 +1,12 @@
 {
     "data": [
     {
-        "tickersymbol": "HDFC",
+        "tickersymbol": "AAP",
         "cp":"1234",
         "pv":"3465"
     },
     {
-        "tickersymbol": "APPL",
+        "tickersymbol": "AAPL",
         "cp":"4586",
         "pv":"3465"
     },

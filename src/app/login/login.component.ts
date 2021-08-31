@@ -34,22 +34,27 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-    this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
+    if(this.username=="Hack5" && this.password=="Hack5")
+    {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';
+      this.authenticationService.registerSuccessfulLogin(this.username,this.password);
       if(this.remember){
         localStorage.setItem('token',this.username);
+       
       }
       setTimeout(() => {
        this. dialogRef.close();
       }, 100);
-   
-   this.router.navigate(['/dashboard']);
-    }, () => {
+      this.router.navigate(['/dashboard']);
+      }
+      else
+      {
       this.invalidLogin = true;
       this.loginSuccess = false;
-    });      
-  }
+      }
+    }
+
 
 }

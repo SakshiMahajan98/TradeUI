@@ -1,7 +1,7 @@
 
 <div width="100%">
-    <app-ticker-table style="width:400px;float:left;margin-left:30px;"></app-ticker-table>
-    <app-chart style="margin-left:440px;" ></app-chart>
+    <app-ticker-table (valueChange)='displayValue($event)' style="width:400px;float:left;margin-left:30px;"></app-ticker-table>
+    <app-chart [ticker]="ticker_name" style="margin-left:440px;" ></app-chart>
     
 </div>
 
