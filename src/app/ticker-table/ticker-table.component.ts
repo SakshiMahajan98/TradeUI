@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DataService } from '../service/data.service';
 export class Ticker{
   constructor(
@@ -17,10 +17,12 @@ export class Ticker{
 export class TickerTableComponent implements OnInit {
   tickers:Ticker[]
   cols = [
-    { field: "tickersymbol", header: "TickerSymbol" },
-    { field: "cp", header: "Closing price" },
-    { field: "pv", header: "Percent Return" }
+    { field: "tickersymbol", header: "Ticker Symbol" },
+    { field: "closing", header: "Closing price" },
+    { field: "high", header: "High" }
   ];
+  @Output() valueChange = new EventEmitter();
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class TickerTableComponent implements OnInit {
   fun(nb:any)
   {
     console.log(nb.tickersymbol);
-    sessionStorage.setItem("ticker_name",nb.tickersymbol);
+    this.valueChange.emit(nb.tickersymbol);
+    
   }
 }

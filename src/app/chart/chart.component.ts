@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, SimpleChanges, OnChanges} from '@angular/core';
 import { DataService } from '../service/data.service';
 import {MessageService} from 'primeng/api';
 import { UIChart} from 'primeng/chart';
 import { ChartService } from './chart.service';
+import { Router } from '@angular/router';
+import { windowWhen } from 'rxjs/operators';
 export class ChartData{
   constructor(
     public date:string,
@@ -23,10 +25,13 @@ export class ChartData{
   styleUrls: ['./chart.component.scss'],
   providers: [MessageService]
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit,OnChanges {
   @ViewChild('chart') chart: UIChart; 
    cD:ChartData[];
-  constructor(public dataservice:DataService,private messageService: MessageService, public chartService: ChartService) { }
+   @Input() ticker: string;
+
+   
+  constructor(public dataservice:DataService,private messageService: MessageService, public chartService: ChartService,public router:Router) { }
   
   cols = [
     { field: "date", header: "Date" },
@@ -39,19 +44,30 @@ export class ChartComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    // this.dataservice.getChartData().then(data => {this.cD = data;
-    //                                                console.log("Inside");
-    //                                                console.log(data);
-    //                                                console.log("Inside");
-    //                                                this.getgraph();
-    //                                               this.chart.refresh();});
-  this.chartService.getData(sessionStorage.getItem("ticker_name"))
-    .then(data => {this.cD=data;
-    this.getgraph();
-    this.chart.refresh();});
+                                               
+   
+      this.chartService.getData(this.ticker)
+      .then(data => {this.cD=data;
+      this.getgraph();
+      this.chart.refresh();});
+   
     
-  }
-    
+  } 
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.ticker)
+    {
+      console.log("Hello");
+      setTimeout(() => {
+        this.chart.reinit();
+      }, 100);
+    }
+      setTimeout(() => {
+        this.chart.reinit();
+      }, 100);
+   
+  } 
+
+
   data2:any;
 lab:string[]=[];
 closingprice:number[]=[];
@@ -67,10 +83,10 @@ getgraph()
      this.lab.push(this.cD[i].date);
      
      this.closingprice.push(this.cD[i].close);
-     console.log(this.closingprice);
+     
 
    }
-  console.log("FOR LOOP BAHAR");
+ 
   this.data2 = {
 
     labels: this.lab,
@@ -100,7 +116,6 @@ this.options = {
   maintainAspectRatio: false
 };
 this.chart.refresh();
-console.log(this.data2);
 
 }
 
