@@ -12,10 +12,20 @@ export class ChartService {
         const url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data?symbol=${ticker}&region=${region}`;
         const headers = {
             "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-            "x-rapidapi-key": "3955d6ba4emshd63e57e1957eeaep19a082jsn7a2538c6c3a4"
+            "x-rapidapi-key": "b4a8ca8456msh9c8e79ba17279adp1469cfjsn48ca15b5035e"
         }
         return this.http.get<any>(url, {'headers':headers})
         .toPromise()
         .then(res => <ChartData[]>res.prices);
+    }
+
+    getDataWithoutPromise(ticker="AMRN", region="US") {
+        const url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data?symbol=${ticker}&region=${region}`;
+        const headers = {
+            "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+            "x-rapidapi-key": "b4a8ca8456msh9c8e79ba17279adp1469cfjsn48ca15b5035e"
+        }
+        return this.http.get<any>(url, {'headers':headers})
+        
     }
 }
