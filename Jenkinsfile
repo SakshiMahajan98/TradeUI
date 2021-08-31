@@ -17,11 +17,11 @@ pipeline {
       }
     }
 
-    stage('Clean up image created for build') {
-      steps {
-        sh 'docker rmi $(docker images -f dangling=true -q)'
-      }
-    }
+    // stage('Clean up image created for build') {
+    //   steps {
+    //     sh 'docker rmi $(docker images -f dangling=true -q)'
+    //   }
+    // }
 
     stage('Deploy Container To Openshift') {
       environment {
