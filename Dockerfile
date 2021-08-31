@@ -27,7 +27,7 @@ RUN ls /usr/local/app/dist
 # Stage 2: Serve app with nginx server
 
 # Use nginx unprivileged (non-root) image as the base image
-FROM nginx:latest
+FROM nginxinc/nginx-unprivileged
 
 # Copy the build output to replace the default nginx contents.
 COPY --from=build /usr/local/app/dist/historicalSimulation /usr/share/nginx/html
