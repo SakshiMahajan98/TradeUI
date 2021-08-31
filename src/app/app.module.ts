@@ -42,8 +42,10 @@ import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChartComponent } from './chart/chart.component';
+import { SchartComponent } from './schart/schart.component';
+import { CategoryService, ChartAllModule, DataLabelService, LegendService, StockChartAllModule, StockChartModule, TooltipService } from '@syncfusion/ej2-angular-charts';
 
-
+import { CandleSeriesService } from '@syncfusion/ej2-angular-charts';
 
 
 
@@ -62,6 +64,7 @@ import { ChartComponent } from './chart/chart.component';
     PortfolioComponent,
     ProfileComponent,
     ChartComponent,
+    SchartComponent,
     
   
   ],
@@ -95,9 +98,12 @@ import { ChartComponent } from './chart/chart.component';
     ChartModule,
     ToastModule,
     InputTextModule,
-    TabViewModule
+    TabViewModule,
+    StockChartModule,
+    ChartAllModule,
+    StockChartAllModule
   ],
-  providers: [],
+  providers: [CandleSeriesService, CategoryService, LegendService, TooltipService, DataLabelService],
   entryComponents: [
     LoginComponent
   ],

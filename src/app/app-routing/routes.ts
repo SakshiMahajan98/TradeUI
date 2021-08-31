@@ -9,6 +9,7 @@ import {BuySellComponent} from '../buy-sell/buy-sell.component';
 import {PortfolioComponent} from '../portfolio/portfolio.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {ChartComponent} from '../chart/chart.component';
+import { SchartComponent } from '../schart/schart.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: 'portfolio',   component:PortfolioComponent},
   { path: 'profile',   component:ProfileComponent},
   { path: 'chart',   component:ChartComponent},
+  { path: 'schart',   component:SchartComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
