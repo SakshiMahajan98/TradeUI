@@ -30,7 +30,7 @@ export class DataService {
     //     .then(data => { return data; });
 
     return this.http.get<any>('assets/sp500.json')
-            .toPromise();
+            // .toPromise();
     
   }
 

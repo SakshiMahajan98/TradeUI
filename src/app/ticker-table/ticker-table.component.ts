@@ -15,7 +15,7 @@ export class Ticker {
   styleUrls: ['./ticker-table.component.scss']
 })
 export class TickerTableComponent implements OnInit {
-  tickers: Ticker[]
+  tickers: Ticker[] =[];
   ticker: string = "AAPL";
   cols = [
     { field: "ticker", header: "Ticker Symbol" },
@@ -26,12 +26,30 @@ export class TickerTableComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
+  display(val) {
+    if(isNaN(val)) return val;
+    return val.toFixed(2);
+  }
+
+
   ngOnInit(): void {
     // this.dataService.getTickerData()
     // .then(data => {this.tickers=data; console.log(data);})
+    // this.dataService.getTickerData()
+    // .then(data => this.tickers = data.map(({ tickersymbol }, index) => {this.dataService.getLiveData(tickersymbol).subscribe(data => this.tickers[index]=data) }))
     this.dataService.getTickerData()
-    .then(data => this.tickers = data.map(({ tickersymbol }, index) => {this.dataService.getLiveData(tickersymbol).subscribe(data => this.tickers[index]=data) }))
-    .then(res=>console.log(this.tickers));
+    .subscribe(
+      data => {
+        data.map(
+          ticker => {
+            this.dataService.getLiveData(ticker.tickersymbol)
+            .subscribe(
+              tt => {
+                this.tickers.push(tt);
+              });
+          }); 
+      });
+    
   }
   FilterUtils: any['custom'] = (value, filter): boolean => {
     if (filter === undefined || filter === null || filter.trim() === '') {
