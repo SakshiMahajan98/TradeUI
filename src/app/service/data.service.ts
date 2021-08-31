@@ -24,10 +24,14 @@ export class DataService {
   } 
   constructor( public http:HttpClient) { }
   getTickerData(){
-    return this.http.get<any>('assets/TickerData.json')
-        .toPromise()
-        .then(res => <Ticker[]>res.data)
-        .then(data => { return data; });
+    // return this.http.get<any>('assets/TickerData.json')
+    //     .toPromise()
+    //     .then(res => <Ticker[]>res.data)
+    //     .then(data => { return data; });
+
+    return this.http.get<any>('assets/sp500.json')
+            .toPromise();
+    
   }
 
   getTickerNames(){
@@ -111,5 +115,13 @@ export class DataService {
     return throwError(errorMessage);
  }
   
-
+ getLiveData(ticker: string="AAPL", timezone="US%2FEastern") {
+  const url = `https://quotient.p.rapidapi.com/equity/live?symbol=${ticker}&timezone=${timezone}`;
+  const headers = {
+      "x-rapidapi-host": "quotient.p.rapidapi.com",
+      "x-rapidapi-key": "3955d6ba4emshd63e57e1957eeaep19a082jsn7a2538c6c3a4"
+  }
+  return this.http.get<any>(url, {'headers':headers})
+  .toPromise()
+ }
 }
