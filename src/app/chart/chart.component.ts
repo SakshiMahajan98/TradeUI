@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild, Input, SimpleChanges, OnChanges} from '@angular/core';
+import { Component, OnInit, ViewChild, Input} from '@angular/core';
 import { DataService } from '../service/data.service';
 import {MessageService} from 'primeng/api';
 import { UIChart} from 'primeng/chart';
 import { ChartService } from './chart.service';
 import { Router } from '@angular/router';
-import { windowWhen } from 'rxjs/operators';
 export class ChartData{
   constructor(
     public date:string,
@@ -25,7 +24,7 @@ export class ChartData{
   styleUrls: ['./chart.component.scss'],
   providers: [MessageService]
 })
-export class ChartComponent implements OnInit,OnChanges {
+export class ChartComponent implements OnInit{
   @ViewChild('chart') chart: UIChart; 
    cD:ChartData[];
    @Input() ticker: string;
@@ -53,19 +52,7 @@ export class ChartComponent implements OnInit,OnChanges {
    
     
   } 
-  ngOnChanges(changes: SimpleChanges) {
-    if(changes.ticker)
-    {
-      console.log("Hello");
-      setTimeout(() => {
-        this.chart.reinit();
-      }, 100);
-    }
-      setTimeout(() => {
-        this.chart.reinit();
-      }, 100);
-   
-  } 
+  
 
 
   data2:any;
