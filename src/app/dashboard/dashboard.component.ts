@@ -23,7 +23,7 @@ export class User{
 export class DashboardComponent implements OnInit {
   data:User;
   constructor(public dataservice:DataService, public router:Router) { }
-  ticker_name:string;
+  ticker_name:string="AAPL";
 
   ngOnInit(): void {
     this.dataservice.getuserData().subscribe (

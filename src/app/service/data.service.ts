@@ -67,7 +67,7 @@ export class DataService {
     console.log(arr);
     var data={
       "order_side":ft,
-      "order_type":"Market",
+      "order_type":arr[3],
       "price":arr[2],
       "quantity":arr[1],
       "ticker_symbol":arr[0],

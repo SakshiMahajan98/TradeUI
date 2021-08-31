@@ -26,12 +26,12 @@ import {SliderModule} from 'primeng/slider';
 import {CardModule} from 'primeng/card';
 import {MatMenuModule} from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {ChartModule} from 'primeng/chart';
 import {ToastModule} from 'primeng/toast';
 import {TabViewModule} from 'primeng/tabview';
 import {InputTextModule} from 'primeng/inputtext';
-
+import {MatRadioModule} from '@angular/material/radio';
 import 'hammerjs';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -67,10 +67,12 @@ import { ChartComponent } from './chart/chart.component';
   ],
   imports: [
     BrowserModule,
+    MatRadioModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatIconModule,
     MatListModule,
     MatAutocompleteModule,
