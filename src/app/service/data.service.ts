@@ -115,13 +115,9 @@ export class DataService {
     return throwError(errorMessage);
  }
   
- getLiveData(ticker: string="AAPL", timezone="US%2FEastern") {
-  const url = `https://quotient.p.rapidapi.com/equity/live?symbol=${ticker}&timezone=${timezone}`;
-  const headers = {
-      "x-rapidapi-host": "quotient.p.rapidapi.com",
-      "x-rapidapi-key": "3955d6ba4emshd63e57e1957eeaep19a082jsn7a2538c6c3a4"
-  }
-  return this.http.get<any>(url, {'headers':headers})
-  .toPromise()
+ getLiveData(ticker: string="AAPL") {
+  const url = `https://qz4sxjl623.execute-api.us-east-1.amazonaws.com/default/tradeAdvisor?ticker=${ticker}`;
+  return this.http.get<any>(url)
+  // .toPromise()
  }
 }

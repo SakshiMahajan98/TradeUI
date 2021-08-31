@@ -1,4 +1,4 @@
-<p-table styleClass="borderless" #my id="tt" [columns]="cols" [value]="tickers" datakey="tickersymbol" 
+<p-table styleClass="borderless" #my id="tt" [columns]="cols" [value]="tickers" datakey="ticker" 
 [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" 
 [paginator]="true" 
 [filterDelay]="0" [scrollable]="true" scrollHeight="400px" class="table table-hover table-responsive table-bordered" [responsive]="true">
@@ -25,7 +25,7 @@
      
         <tr  [pSelectableRow]="rowData">
                  <td style="color:black;" *ngFor="let col of columns">
-                    {{rowData[col.field]}}
+                  {{rowData[col.field]}}
             </td>
             <td> <button (click)="fun(rowData);"><span class="fa fa-line-chart" style="font-size: 1em;color:'black';"></span></button></td>
         </tr>
