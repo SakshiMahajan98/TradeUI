@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { LazyLoadEvent } from 'primeng/api';
 import { DataService } from '../service/data.service';
 export class Ticker {
   constructor(
@@ -16,7 +17,8 @@ export class Ticker {
 })
 export class TickerTableComponent implements OnInit {
   tickers: Ticker[] =[];
-  ticker: string = "AAPL";
+  datasample:Ticker[]=[];
+  ticker_name: string = "AAPL";
   cols = [
     { field: "ticker", header: "Ticker Symbol" },
     { field: "lastClose", header: "Closing price" },
@@ -45,12 +47,26 @@ export class TickerTableComponent implements OnInit {
             this.dataService.getLiveData(ticker.tickersymbol)
             .subscribe(
               tt => {
-                this.tickers.push(tt);
+                this.datasample.push(tt);
               });
           }); 
       });
+      console.log(this.datasample.length);
+      this.tickers=this.datasample;
+      console.log("Ticker length:" +this.tickers.length);
+
     
   }
+  loading=false;
+  
+  loadCustomers(event: LazyLoadEvent) {
+    this.loading = true;
+
+    setTimeout(() => {
+        this.tickers=this.tickers;
+    }, 100);
+}
+
   FilterUtils: any['custom'] = (value, filter): boolean => {
     if (filter === undefined || filter === null || filter.trim() === '') {
       return true;
@@ -64,8 +80,8 @@ export class TickerTableComponent implements OnInit {
   }
   fun(nb: any) {
     console.log(nb.ticker);
-    this.ticker = nb.ticker;
-    this.valueChange.emit(this.ticker);
+    this.ticker_name= nb.ticker;
+    this.valueChange.emit(this.ticker_name);
 
   }
 }
