@@ -1,0 +1,50 @@
+<div id="bottom">
+    <app-buy-sell id="buysell"></app-buy-sell>
+    <div id="details">
+        <p-card  id="pcard" border="0">
+            <ng-template pTemplate="header">
+                Details
+            </ng-template>
+            <span><img src="../assets/images/money-bag.png"
+                    style="float:left;margin-top:8px;margin-left:90px;height:40px;width=40px;">
+                <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Details</h2>
+            </span>
+
+            <br>
+            <table style="margin-left:100px;text-align: center;width:300px;">
+                <tr>
+                    <td id="tes"><b>Equity</b></td>
+                    <td><b>{{data.equity_value}}</b></td>
+                </tr>
+                <hr>
+                <tr>
+                    <td id="tes"><b>Cash</b></td>
+                    <td><b>Rs. {{data.cash}}</b></td>
+                </tr>
+                <hr>
+                <tr>
+                    <td id="tes"><b>Total</b></td>
+                    <td><b>{{data.equity_value+data.cash}}</b></td>
+                </tr>
+                <hr>
+            </table>
+            <br>
+            <button mat-raised-button  (click)="router.navigate(['/profile']);"> Click
+                here to Edit </button>
+           
+        </p-card>
+        <div id="viewportfolio">
+            <h3 >View Portfolio </h3>
+            <button mat-raised-button  (click)="router.navigate(['/portfolio']);">&nbsp;
+                Portfolio &nbsp;</button>
+        </div>
+
+        <div id="viewhistory">
+            <h3 >View Tradehistory </h3>
+            <button mat-raised-button 
+                (click)="router.navigate(['/tradeHistory']);">&nbsp;trade History&nbsp;</button>
+        </div>
+
+    </div>
+
+</div>

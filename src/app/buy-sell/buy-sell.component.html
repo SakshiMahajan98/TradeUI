@@ -1,51 +1,55 @@
-<div style="text-align:center;margin-left:400px;">
-<form style="text-align:center;" class="form" [formGroup]="buyerForm" >
-<h2>Buy or Sell Trades </h2>
-    <h3>Ticker Symbol</h3>
-    <mat-form-field class="full-width" appearance="fill"> 
+<div id="container">
+  <form class="form" [formGroup]="buyerForm">
+    <h2 id = "title">Buy or Sell Trades </h2>
+    <div id="symbol">
+      <h3>Ticker Symbol</h3>
+      <mat-form-field appearance="fill">
         <mat-label>Ticker symbol</mat-label>
-        <input type="text"
-        [(ngModel)]="ticker"
-            placeholder="Pick one"
-            aria-label="Number"
-            matInput
-            [formControl]="myControl"
-            [matAutocomplete]="auto"
-            formcontrolName="Tick">
+        <input type="text" [(ngModel)]="ticker" placeholder="Pick one" aria-label="Number" matInput
+          [formControl]="myControl" [matAutocomplete]="auto" formcontrolName="Tick">
         <mat-autocomplete #auto="matAutocomplete">
-        <mat-option (click)="OnHumanSelected(ticker)"  *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-option (click)="OnHumanSelected(ticker)" *ngFor="let option of filteredOptions | async" [value]="option">
             {{option}}
-        </mat-option>
+          </mat-option>
         </mat-autocomplete>
       </mat-form-field>
       <h6 style="color:red;" [hidden]="this.error!=99">Invalid Option</h6>
-    
-    <form [formGroup]="labeloptions">
-    <div  >
-      <h3>Choose Order type: </h3><br>
-      <mat-radio-group [formControl]="floatLabelControl">
-        <mat-radio-button value="Market">Market&nbsp;&nbsp;&nbsp;</mat-radio-button>
-        <mat-radio-button   value="Limit">Limit</mat-radio-button>
-      </mat-radio-group>
     </div>
+
+
+
+    <form [formGroup]="labeloptions">
+      <div id="ordertype">
+        <h3>Choose Order type: </h3><br>
+        <mat-radio-group [formControl]="floatLabelControl">
+          <mat-radio-button value="Market">Market&nbsp;&nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="Limit">Limit</mat-radio-button>
+        </mat-radio-group>
+      </div>
     </form>
 
-    <h3>Choose quantity</h3> 
-    <mat-form-field class="full-width"appearance="fill">
+    <div id="quantity">
+      <h3>Choose quantity</h3>
+      <mat-form-field appearance="fill">
         <mat-label>Input</mat-label>
         <input matInput formControlName="Quantity">
-    </mat-form-field>
+      </mat-form-field>
+    </div>
 
-    <h3>Price</h3>
-    <mat-form-field class="full-width" appearance="fill">
+    <div id="price">
+      <h3>Price</h3>
+      <mat-form-field appearance="fill">
         <mat-label>Input</mat-label>
         <input matInput formControlName="Price">
-    </mat-form-field>
-     <button mat-raised-button (click)="BuyFormData()">Buy Trade</button> &nbsp;
-     <button mat-raised-button (click)="SellFormData()">Sell Trade</button>
-     <h5  style="color:red;" [hidden]="hello==0">Please enter correct values</h5> 
-     <h3 style="color:black;" [hidden]="success==0"> Order Placed Successfully </h3>
-      </form>
-      </div>
+      </mat-form-field>
+    </div>
 
-     
+    <div id="buysellbutton">
+      <button mat-raised-button (click)="BuyFormData()">Buy Trade</button> &nbsp;
+      <button mat-raised-button (click)="SellFormData()">Sell Trade</button>
+      <h5 style="color:red;" [hidden]="hello==0">Please enter correct values</h5>
+      <h3 style="color:black;" [hidden]="success==0"> Order Placed Successfully </h3>
+    </div>
+
+  </form>
+</div>

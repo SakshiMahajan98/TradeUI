@@ -10,6 +10,7 @@ import {PortfolioComponent} from '../portfolio/portfolio.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {ChartComponent} from '../chart/chart.component';
 import { SchartComponent } from '../schart/schart.component';
+import { PurchaseComponent } from '../purchase/purchase.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -23,5 +24,6 @@ export const routes: Routes = [
   { path: 'profile',   component:ProfileComponent},
   { path: 'chart',   component:ChartComponent},
   { path: 'schart',   component:SchartComponent},
+  { path: 'purchase',   component: PurchaseComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

@@ -1,0 +1,32 @@
+#bottom {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+
+#details {
+    #viewportfolio {
+     
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #viewhistory {
+  
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+    }
+}
+
+#pcard  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin-left: 150px;
+    }
+}

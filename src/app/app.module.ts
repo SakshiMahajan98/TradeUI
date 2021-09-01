@@ -46,6 +46,7 @@ import { SchartComponent } from './schart/schart.component';
 import { CategoryService, ChartAllModule, DataLabelService, LegendService, StockChartAllModule, StockChartModule, TooltipService } from '@syncfusion/ej2-angular-charts';
 
 import { CandleSeriesService } from '@syncfusion/ej2-angular-charts';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 
@@ -65,6 +66,7 @@ import { CandleSeriesService } from '@syncfusion/ej2-angular-charts';
     ProfileComponent,
     ChartComponent,
     SchartComponent,
+    PurchaseComponent,
     
   
   ],

@@ -6,7 +6,7 @@
     <div>
     <a mat-button    *ngIf="!authenticationService.isUserLoggedIn()" (click)="openLoginForm()" ><span class="fa fa-sign-in fa-lg"></span> Login </a>
     <a mat-button *ngIf="authenticationService.isUserLoggedIn()" routerLink="/dashboard" routerLinkActive='active'><span class="fa fa-list fa-lg"></span> Dashboard</a>
-    <a mat-button *ngIf="authenticationService.isUserLoggedIn()" routerLink="/buy" routerLinkActive='active'><span class="fa fa-list fa-lg"></span> Purchase/ Sell Trades</a>
+    <a mat-button *ngIf="authenticationService.isUserLoggedIn()" routerLink="/purchase" routerLinkActive='active'><span class="fa fa-list fa-lg"></span> Purchase/ Sell Trades</a>
     <a mat-button *ngIf="authenticationService.isUserLoggedIn()" routerLink="/tradeHistory" routerLinkActive='active'><span class="fa fa-list fa-lg"></span> TradeHistory</a>
     <a mat-button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="authenticationService.isUserLoggedIn()">
       <span class="fa fa-user-circle-o fa-lg" aria-hidden="true"></span>

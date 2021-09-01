@@ -1,12 +1,76 @@
 .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-    margin:20px;
+    // min-width: 150px;
+    // max-width: 500px;
+    // width: 100%;
+    // margin:20px;
+    // text-align:center;
+    display: flex;
+    // grid-template-columns: auto auto;
+    width: 50vw;
+    flex-direction: column;
+    // align-items: flex-end;
+    // padding: 0;
+    // margin: 0;
+    // box-sizing: border-box;
+    #title {
+      text-align: center;
+      // grid-column-start: 1;
+      // grid-column-end: 3;
+    }
+
+    #symbol {
+      display: flex;
+      justify-content: space-around;
+
+      mat-form-field {
+        flex: 0.8;
+      }
+
+    }
+
+    #ordertype {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      mat-radio-group {
+        flex: 0.8;
+      }
+    }
+
+    #price {
+      display: flex;
+      justify-content: space-around;
+
+      mat-form-field {
+        flex: 0.65;
+      }
+    }
+
+    #quantity {
+      display: flex;
+      justify-content: space-around;
+
+      mat-form-field {
+        flex: 0.85;
+      }
+    }
+
+    #buysellbutton {
+      display: flex;
+      justify-content: center;
+    }
   }
   
   .full-width {
-    width: 100%;
-    text-align:center;
+    // width: 100%;
+    // text-align:center;
+  }
+
+  .container {
+    // text-align:center;
+    // width: 50%;
+    // margin-left:400px;
   }
   
+

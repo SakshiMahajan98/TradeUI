@@ -96,7 +96,7 @@ export class BuySellComponent implements OnInit {
       this.success=1;
       this.myControl.reset();
       this.buyerForm.reset();
-      
+      this.ngOnInit();
     }
     
 
